@@ -28,17 +28,17 @@ The .NET Tracer is open source. For more information, see the [.NET Tracer repos
 
 The .NET Tracer supports automatic and custom instrumentation on the following .NET versions. It also supports [.NET Framework][2].
 
-| Version              | Microsoft End of Life | Support level        | Package version      |
-| -------------------- | --------------------- | -------------------- | -------------------- |
-| .NET 8               |                       | [GA](#support-ga)    | latest (>= 2.42.0)   |
-| .NET 7               |                       | [GA](#support-ga)    | latest (>= 2.20.0)   |
-| .NET 6               |                       | [GA](#support-ga)    | latest (>= 2.0.0)    |
-| .NET 5               | 05/10/2022            | [GA](#support-ga)    | latest (>= 2.0.0)    |
-| .NET Core 3.1        | 12/13/2022            | [GA](#support-ga)    | latest               |
-| .NET Core 2.1        | 08/21/2021            | [GA](#support-ga)    | latest               |
-| .NET Core 3.0        | 03/03/2020            | [EOL](#support-eol)  | Not recommended       |
-| .NET Core 2.2        | 12/23/2019            | [EOL](#support-eol)  | Not recommended       |
-| .NET Core 2.0        | 10/01/2018            | [EOL](#support-eol)  | Not recommended       |
+| Version              | Microsoft End of Life | Support level       | Package version      |
+| -------------------- | --------------------- | ------------------- | -------------------- |
+| .NET 8               |                       | [GA](#support-ga)   | latest (>= 2.42.0)   |
+| .NET 7               |                       | [GA](#support-ga)   | latest (>= 2.20.0)   |
+| .NET 6               |                       | [GA](#support-ga)   | latest (>= 2.0.0)    |
+| .NET 5               | 05/10/2022            | [GA](#support-ga)   | latest (>= 2.0.0)    |
+| .NET Core 3.1        | 12/13/2022            | [GA](#support-ga)   | latest               |
+| .NET Core 2.1        | 08/21/2021            | [GA](#support-ga)   | latest               |
+| .NET Core 3.0        | 03/03/2020            | [EOL](#support-eol) | Not recommended      |
+| .NET Core 2.2        | 12/23/2019            | [EOL](#support-eol) | Not recommended      |
+| .NET Core 2.0        | 10/01/2018            | [EOL](#support-eol) | Not recommended      |
 
  Additional information can be found within [Microsoft's .NET and .NET Core Lifecycle Policy][3], [End of life APM .NET Core versions](#end-of-life-net-core-versions), and in [Runtime support policy for .NET APM](#runtime-support-policy-for-net-apm).
 
@@ -50,13 +50,13 @@ The .NET Tracer supports automatic and custom instrumentation on the following .
 
 The .NET Tracer supports automatic instrumentation on the following architectures:
 
-| Processor architectures                   | Support level         | Package version                        |
-| ------------------------------------------|-----------------------|----------------------------------------|
-| Windows x86 (`win-x86`)                   | [GA](#support-ga)     | latest                                 |
-| Windows x64 (`win-x64`)                   | [GA](#support-ga)     | latest                                 |
-| Linux x64 (`linux-x64`)                   | [GA](#support-ga)     | latest                                 |
-| Alpine Linux x64 (`linux-musl-x64`)       | [GA](#support-ga)     | latest                                 |
-| Linux ARM64 (`linux-arm64`)               | [GA](#support-ga)     | .NET 5+ only, added in version 1.27.0  |
+| Processor architectures             | Support level     | Package version                       |
+| ------------------------------------|-------------------|---------------------------------------|
+| Windows x86 (`win-x86`)             | [GA](#support-ga) | latest                                |
+| Windows x64 (`win-x64`)             | [GA](#support-ga) | latest                                |
+| Linux x64 (`linux-x64`)             | [GA](#support-ga) | latest                                |
+| Alpine Linux x64 (`linux-musl-x64`) | [GA](#support-ga) | latest                                |
+| Linux ARM64 (`linux-arm64`)         | [GA](#support-ga) | .NET 5+ only, added in version 1.27.0 |
 
 ## Integrations
 
@@ -104,9 +104,9 @@ For these libraries, set `DD_TRACE_OTEL_ENABLED=true`, and the .NET tracer autom
 
 The following list of libraries have been tested with this setup:
 
-| Framework or library            | NuGet package                                                                 | Integration Name     | Specific instructions         |
-| ------------------------------- | ----------------------------------------------------------------------------- | -------------------- | ----------------------------- |
-| Azure Service Bus               | `Azure.Messaging.ServiceBus` 7.14.0+                                          | `AzureServiceBus`    | See `Azure SDK` section below |
+| Framework or library | NuGet package                        | Integration Name  | Specific instructions         |
+| -------------------- | ------------------------------------ | ----------------- | ----------------------------- |
+| Azure Service Bus    | `Azure.Messaging.ServiceBus` 7.14.0+ | `AzureServiceBus` | See `Azure SDK` section below |
 
 ### Azure SDK
 
@@ -116,18 +116,18 @@ The Azure SDK provides built-in OpenTelemetry support. Enable it by setting the 
 
 The .NET Tracer works on .NET Core 2.0, 2.1, 2.2, and 3.0, but these versions reached their end of life and are no longer supported by Microsoft. See [Microsoft's support policy][3] for more details. Datadog recommends using the latest patch version of .NET Core 3.1, .NET 5, .NET 6, .NET 7, or .NET 8. Older versions of .NET Core may encounter the following runtime issues when enabling automatic instrumentation:
 
-| Issue                                         | Affected .NET Core Versions               | Solution                                                               | More information                        |
-|-----------------------------------------------|-------------------------------------------|------------------------------------------------------------------------|-----------------------------------------|
-| JIT Compiler bug on Linux/x64                 | 2.0.x,</br>2.1.0-2.1.11,</br>2.2.0-2.2.5  | Upgrade .NET Core to the latest patch version, or follow steps in the linked issue | [DataDog/dd-trace-dotnet/issues/302][6] |
-| Resource lookup bug with a non `en-US` locale | 2.0.0                                     | Upgrade .NET Core to 2.0.3 or above                                    | [dotnet/runtime/issues/23938][7]        |
+| Issue                                         | Affected .NET Core Versions              | Solution                                                                           | More information                        |
+|-----------------------------------------------|------------------------------------------|------------------------------------------------------------------------------------|-----------------------------------------|
+| JIT Compiler bug on Linux/x64                 | 2.0.x,</br>2.1.0-2.1.11,</br>2.2.0-2.2.5 | Upgrade .NET Core to the latest patch version, or follow steps in the linked issue | [DataDog/dd-trace-dotnet/issues/302][6] |
+| Resource lookup bug with a non `en-US` locale | 2.0.0                                    | Upgrade .NET Core to 2.0.3 or above                                                | [dotnet/runtime/issues/23938][7]        |
 
 ## Supported Datadog Agent versions
 
-| **Datadog Agent version**   | **Package version** |
-|-----------------------------|---------------------|
-| [7.x][8]                    | Latest              |
-| [6.x][8]                    | Latest              |
-| [5.x][9]                    | Latest              |
+| **Datadog Agent version** | **Package version** |
+|---------------------------|---------------------|
+| [7.x][8]                  | Latest              |
+| [6.x][8]                  | Latest              |
+| [5.x][9]                  | Latest              |
 
 ## Runtime support policy for .NET APM
 
@@ -135,13 +135,13 @@ Datadog APM for .NET depends on the host operating system, .NET runtime, certain
 
 ### Levels of support
 
-| **Level**                                              | **Support provided**                                                                                                                                                          |
-|--------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <span id="support-unsupported">Unsupported</span>      |  No implementation. [Contact customer support for special requests.][10]                                                             |
-| <span id="support-beta">Beta</span>                    |  Initial implementation. May not yet contain all features. Support for new features, bug & security fixes provided on a best-effort basis.                                    |
-| <span id="support-ga">General Availability (GA)</span> |  Full implementation of all features. Full support for new features, bug & security fixes.                                                                                    |
-| <span id="support-maintenance">Maintenance</span>      |  Full implementation of existing features. Does not receive new features. Support for bug & security fixes only.                                                              |
-| <span id="support-eol">End-of-life (EOL)</span>        |  No support.                                                                                                                                                                  |
+| **Level**                                              | **Support provided**                                                                                                                       |
+|--------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| <span id="support-unsupported">Unsupported</span>      |  No implementation. [Contact customer support for special requests.][10]                                                                   |
+| <span id="support-beta">Beta</span>                    |  Initial implementation. May not yet contain all features. Support for new features, bug & security fixes provided on a best-effort basis. |
+| <span id="support-ga">General Availability (GA)</span> |  Full implementation of all features. Full support for new features, bug & security fixes.                                                 |
+| <span id="support-maintenance">Maintenance</span>      |  Full implementation of existing features. Does not receive new features. Support for bug & security fixes only.                           |
+| <span id="support-eol">End-of-life (EOL)</span>        |  No support.                                                                                                                               |
 
 ### Package versioning
 
